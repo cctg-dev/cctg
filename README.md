@@ -7,7 +7,7 @@
   - `npm install -g @anthropic-ai/claude-code --registry=https://registry.npmmirror.com`
 - 如果您是windows，请确保安装了 git-for-windows 并且安装时选择了添加PATH。windows添加PATH后可能需要重新登录或者重启才生效。
 - 下载对应os的cctg 可执行文件
-  - https://github.com/cctg-run/cctg/releases
+  - https://github.com/cctg-dev/cctg/releases
   - 放到任意目录，最好是在PATH里的，就好了
 
 
