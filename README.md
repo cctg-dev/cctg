@@ -1,6 +1,6 @@
 ## 安装方法一（官网安装）
 
-- 去 官网  https://nodejs.org/ 安装 nodejs。设置好 PATH环境变量，保证node和npm能运行
+- 去 官网  https://nodejs.org/ 安装 nodejs。注意node需要版本22以上。设置好 PATH环境变量，保证node和npm能运行
 - 安装官方 claude code :
   -  `npm install -g @anthropic-ai/claude-code`
 - 如果网速较慢，也可以考虑加上国内mirror: 
@@ -20,7 +20,7 @@
 
 然后配置PATH环境变量指向它就行了。
 
-
+Windows用户注意：同样必须手动安装git-for-windows
 
 ## 使用方法
 
@@ -28,5 +28,5 @@
 
 更多的使用方法参考cc官方文档
 
-账号请登录 https://cctg.run/ 自己创建。激活码请联系 QQ 283016336
+账号请登录 https://cctg.run/ 自己注册。激活码请联系 QQ 283016336
 
