@@ -1,4 +1,4 @@
-name: "build macos"
+name: "build macos x64"
 
 permissions:
   contents: write
