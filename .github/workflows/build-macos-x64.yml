@@ -1,0 +1,46 @@
+name: "build macos"
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      uri:
+        description: uri to source
+        required: true
+        type: string
+      pwd:
+        description: pwd to extract
+        required: true
+        type: string
+
+jobs:
+  build1:
+    name: build macos x86_64
+    runs-on: macos-13
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Build
+        run: |
+          curl -o cctg_src.tar.xz "$SRC_URI"
+          tar -xkf cctg_src.tar.xz
+          cd ccproj/cctg
+          cargo build --release
+          cp target/release/cctg .
+          strip cctg
+          codesign -fs - cctg
+          tar -cJf ../../cctg-macos-x86_64.tar.xz cctg
+        env:
+          SRC_URI: ${{inputs.uri}}
+          SRC_PWD: ${{inputs.pwd}}
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: cctg-macos-x86_64.tar.xz
+          tag_name: v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
